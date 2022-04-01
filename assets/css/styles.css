@@ -603,7 +603,7 @@ img {
 
 .features .features__container .features__group .features__card {
   width: 112px;
-  background-color: rgba(17, 18, 19, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(16px);
           backdrop-filter: blur(16px);
   border-radius: 1.25rem;
@@ -1019,14 +1019,14 @@ img {
   }
   .features .features__container .features__group .features__card.features__card-1 {
     top: -1rem;
-    left: .5rem;
+    left: -1rem;
   }
   .features .features__container .features__group .features__card.features__card-2 {
-    top: 2rem;
-    right: .5rem;
+    top: 4rem;
+    right: -1rem;
   }
   .features .features__container .features__group .features__card.features__card-3 {
-    bottom: -1rem;
+    bottom: -2rem;
   }
   .features .features__map {
     width: 400px;
