@@ -1,0 +1,67 @@
+.features {
+    overflow: hidden;
+    position: relative;
+
+    .features__container {
+        padding-top: 2rem;
+        grid-template-columns: 400px;
+        justify-content: center;
+
+        .features__group {
+            display: grid;
+            position: relative;
+            z-index: 10;
+
+            .features__img {
+                width: 100%;
+                justify-self: center;
+            }
+
+            .features__card {
+                width: 112px;
+                background-color: hsla(219, 4%, 7%, .3);
+                backdrop-filter: blur(16px);
+                border-radius: 1.25rem;
+                padding: .75rem 1rem;
+                text-align: center;
+                color: var(--title-color);
+                position: absolute;
+
+                &.features__card-1 {
+                    top: 4rem;
+                    left: 1.5rem;
+                }
+
+                &.features__card-2 {
+                    top: 8rem;
+                    right: 1rem;
+                }
+
+                &.features__card-3 {
+                    left: 1.5rem;
+                    bottom: 2rem;
+                }
+
+                .features__card-title {
+                    font-size: var(--h3-font-size);
+                    margin-bottom: .25rem;
+                }
+
+                .features__card-description {
+                    font-size: var(--smaller-font-size);
+                }
+            }
+        }
+    }
+
+    .features__map {
+        max-width: initial;
+        width: 550px;
+        position: absolute;
+        top: 11rem;
+        left: -3rem;
+        margin: auto;
+        filter: invert(100%);
+        opacity: .2;
+    }
+}

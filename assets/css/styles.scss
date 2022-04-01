@@ -1,0 +1,581 @@
+//============ GOOGLE FONTS ============
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap');
+
+//============ VARIABLES CSS ============
+:root {
+    --header-height: 3.5rem;
+
+    //====== Colors ======
+    // Color mode HSL(hue, saturation, lightness)
+    --first-color: hsl(219, 69%, 56%);
+    --first-color-alt: hsl(219, 69%, 52%);
+    --title-color: hsl(219, 8%, 95%);
+    --text-color: hsl(219, 8%, 75%);
+    --text-color-light: hsl(219, 4%, 55%);
+    --white-color: #fff;
+    --body-color: hsl(219, 4%, 4%);
+    --container-color: hsl(219, 4%, 7%);
+
+    //====== Font and typography ======
+    // .5rem = 8px | 1rem = 16px...
+    --body-font: 'Exo', sans-serif;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    //====== Font weight ======
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    //====== z index ======
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+//============ BASE ============
+* {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+//============ REUSABLE CSS CLASSES ============
+.container {
+    max-width: 1024px;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h2-font-size);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.main {
+    overflow: hidden;
+}
+
+.shape {
+    background-color: hsla(219, 33%, 32%, .5);
+    filter: blur(112px);
+    border-radius: 50%;
+
+    &.shape__big {
+        width: 400px;
+        height: 400px;
+    }
+
+    &.shape__small {
+        width: 300px;
+        height: 300px;
+    }
+
+    &.shape__smaller {
+        width: 180px;
+        height: 180px;
+        filter: blur(64px);
+    }
+}
+
+//============ BUTTON ============
+.button {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-radius: .25rem;
+    font-size: var(--normal-font-size);
+    transition: .3s;
+
+    &:hover {
+        background-color: var(--first-color-alt);
+    }
+}
+
+@import "./header";
+@import "./home";
+@import "./about";
+@import "./popular";
+@import "./features";
+@import "./featured";
+@import "./offer";
+@import "./logos";
+@import "./footer";
+
+//============ SCROLL BAR ============
+::-webkit-scrollbar {
+    width: .6rem;
+    background-color: hsl(219, 4%, 16%);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsl(219, 4%, 24%);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(219, 4%, 32%);
+}
+
+//============ SCROLL UP ============
+.scrollup {
+    position: fixed;
+    right: 1rem; bottom: -30%;
+    background-color: hsla(0, 0%, 100%, .1);
+    backdrop-filter: blur(16px);
+    display: inline-flex;
+    padding: .45rem;
+    border-radius: .5rem;
+    font-size: 1.15rem;
+    color: var(--white-color);
+    z-index: var(--z-tooltip);
+    transition: .4s;
+
+    &:hover {
+        transform: translateY(-.25rem);
+    }
+
+    // show scroll up
+    &.show-scroll {
+        bottom: 3rem;
+    }
+}
+
+//============ BREAKPOINTS ============
+// For small devices
+@media screen and (max-width: 430px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .home .home__container .home__car {
+        column-gap: 2rem;
+    }
+
+    .about .about__container .about__group .about__card {
+        width: 150px;
+    }
+
+    .features .features__container {
+        grid-template-columns: 300px;
+
+        .features__group .features__card {
+            &.features__card-1 {
+                top: -1rem;
+                left: .5rem;
+            }
+
+            &.features__card-2 {
+                top: 2rem;
+                right: .5rem;
+            }
+
+            &.features__card-3 {
+                bottom: -1rem;
+            }
+        }
+    }
+
+    .features {
+        .features__map {
+            width: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .offer .offer__container {
+        grid-template-rows: max-content 180px;
+
+        .offer__data {
+            margin-bottom: 3rem;
+        }
+
+        .offer__img {
+            width: 280px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .logos .logos__container {
+        gap: 3.5rem;
+    }
+}
+
+@media (min-width: 431px) and (max-width: 575px) {
+    .about .about__group {
+        width: 340px;
+        justify-self: center;
+    }
+
+    .features .features__map {
+        width: 460px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .offer .offer__container {
+        grid-template-rows: max-content 200px;
+
+        .offer__data {
+            margin-bottom: 5rem;
+        }
+
+        .offer__img {
+            width: 320px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+
+// For medium devices
+@media screen and (min-width: 576px){
+    .about__group {
+        width: 380px;
+        justify-self: center;
+    }
+
+    .features .features__map {
+        left: 0; right: 0;
+    }
+
+    .featured .featured__container .featured__content {
+        grid-template-columns: repeat(2, 228px);
+    }
+
+    .offer .offer__container {
+        grid-template-rows: initial;
+        grid-template-columns: .5fr;
+        justify-content: center;
+
+        .offer__data {
+            margin-bottom: 4rem;
+        }
+
+        .offer__img {
+            position: relative;
+            bottom: initial;
+            right: initial;
+        }
+    }
+
+    .features .features__map {
+        top: 9rem;
+    }
+}
+
+@media screen and (min-width: 767px){
+    .section {
+        padding: 7rem 0 2rem;
+    }
+
+    .header .nav {
+        height: calc(var(--header-height) + 1.5rem);
+
+        .nav__toggle,
+        .nav__close {
+            display: none;
+        }
+
+        .nav__list {
+            flex-direction: row;
+            column-gap: 3rem;
+            padding-top: 0;
+
+            .nav__item .nav__link {
+                font-size: var(--normal-font-size);
+                text-transform: initial;
+            }
+        }
+    }
+
+    .about .about__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features .features__container {
+        .features__group .features__card {
+            &.features__card-1 {
+                top: -1rem;
+            }
+
+            &.features__card-2 {
+                top: 4rem;
+                right: -2rem;
+            }
+
+            &.features__card-3 {
+                bottom: -1rem;
+            }
+        }
+    }
+
+    .logos .logos__container {
+        gap: 4rem 8rem;
+    }
+
+    .footer .footer__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// For large devices
+@media screen and (min-width: 1040px){
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home {
+        .shape__big {
+            width: 450px; height: 450px;
+        }
+        .shape__small {
+            width: 450px; height: 450px;
+        }
+        .home__container {
+            padding-top: 1rem;
+
+            .home__img {
+                width: 450px;
+            }
+            .home__car {
+                column-gap: 7rem;
+                .home__car-data {
+                    .home__car-icon {
+                        font-size: 1.25rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .about .about__container {
+        column-gap: 6rem;
+        align-items: center;
+
+        .about__group {
+            width: 480px;
+            
+            .about__img {
+                width: 480px;
+            }
+            .about__card {
+                width: 198px;
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        .about__data {
+            .about__description {
+                padding-right: 4rem;
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
+    .popular .popular__container {
+        width: 875px;
+        padding-top: 3rem;
+
+        .popular__card {
+            width: 258px;
+            border-radius: 1.25rem;
+            margin-bottom: 5rem;
+
+            .popular__img {
+                width: 180px;
+                margin: .75rem 0 1.25rem 2rem;
+            }
+        }
+    }
+
+    .features .features__container {
+        padding: 1rem 0 3rem;
+        grid-template-columns: 500px;
+
+
+        .features__group {
+            .features__img {
+                width: 100%;
+            }
+
+            .features__card {
+                width: 127px;
+                padding: .75rem 1rem;
+
+                &.features__card-1 {
+                    left: -1rem;
+                    top: -1rem;
+                }
+
+                &.features__card-2 {
+                    right: -4rem;
+                    top: 6rem;
+                }
+
+                &.features__card-3 {
+                    bottom: -1rem;
+                    left: -1rem;
+                }
+            }
+        }
+    }
+
+    .features .features__map {
+        width: 650px;
+        top: 11rem;
+    }
+
+    .featured .featured__container {
+        padding-bottom: 2.5rem;
+
+        .featured__filters {
+            column-gap: 2rem;
+            margin-bottom: 4.5rem;
+
+            .featured__item {
+                width: 52px;
+                height: 52px;
+
+                img {
+                    width: 2rem;
+                }
+            }
+        }
+
+        .featured__content {
+            grid-template-columns: repeat(3, 248px);
+            gap: 4rem;
+        }
+    }
+
+    .offer .offer__container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        align-items: center;
+        padding-bottom: 2rem;
+
+        .offer__data,
+        .offer__title {
+            text-align: initial;
+        }
+
+        .offer__data {
+            margin-bottom: 0;
+
+            .offer__description {
+                padding-right: 6rem;
+            }
+        }
+
+        .offer__img {
+            width: 350px;
+            right: -4rem;
+        }
+    }
+
+    .logos .logos__container {
+        grid-template-columns: repeat(6, max-content);
+
+        .logos__img {
+            width: 50px;
+        }
+    }
+
+    .footer .footer__container {
+        grid-template-columns: repeat(4, max-content);
+        justify-content: space-between;
+
+        .footer__logo {
+            column-gap: .5rem;
+
+            i {
+                font-size: 2rem;
+            }
+        }
+
+        .footer__title {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer__links {
+            row-gap: .75rem;
+        }
+
+        .footer__social {
+            .footer__social-link {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .footer .footer__copy {
+        margin-top: 6rem;
+        padding-bottom: 1rem;
+    }
+
+    .scrollup {
+        right: 3rem;
+    }
+}
